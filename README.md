@@ -14,7 +14,7 @@ End-to-end SOC investigation of a phishing-initiated ransomware attack against H
 
 
 
----
+
 
 ## Executive Summary
 
