@@ -178,15 +178,6 @@ a) It has to run. Correct. Delivery without execution is not a compromise. A fil
 This reasoning step helps connect the surrounding evidence and prevents unsupported conclusions.
 
 
-#### KQL Query Used
-
-
-_No standalone KQL query was supplied for this conceptual flag. Consult the adjacent evidence-producing flags._
-
-
-#### 🖼️ Screenshot
-
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
 
 
 #### 🛡️ Detection Recommendation
@@ -242,7 +233,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="816" height="358" alt="image" src="https://github.com/user-attachments/assets/abd9f924-8a55-4061-b262-d942eba55325" />
+
 
 
 #### 🛡️ Detection Recommendation
