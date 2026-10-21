@@ -168,11 +168,8 @@ a) It has to run. Correct. Delivery without execution is not a compromise. A fil
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 1: Initial Access |
-
 | MITRE ATT&CK | TA0001, Initial Access |
-
 | Event record | No dedicated query supplied for this reasoning flag |
 
 
@@ -220,15 +217,10 @@ Vendor_Invoice_Review.7z downloaded by emily.grant, the phishing payload arrived
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 1: Initial Access |
-
 | MITRE ATT&CK | T1566, Phishing |
-
 | Host filter | `BACKOFFICE-PC1` |
-
 | Event ID | `11` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -289,15 +281,10 @@ rundll32.exe D:\the binary,StartW, the ISO mounts as D: and rundll32 loads the D
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 2: Execution |
-
 | MITRE ATT&CK | T1218.011, Rundll32 |
-
 | Host filter | `BACKOFFICE-PC1` |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -351,15 +338,10 @@ notepad.exe, the payload immediately injects into notepad.exe via remote thread 
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 2: Execution |
-
 | MITRE ATT&CK | T1055, Process Injection |
-
 | Host filter | `BACKOFFICE-PC1` |
-
 | Event ID | `8` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -414,15 +396,10 @@ The second file re-runs the same DLL-in-ISO technique, redundancy, not new malwa
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 2: Execution |
-
 | MITRE ATT&CK | T1027, Obfuscated Files |
-
 | Host filter | `BACKOFFICE-PC1` |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -484,15 +461,10 @@ HKCU\Software\Classes\ms-settings\shell\open\command → C:\Users\Public\taskhos
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 3: Privilege Escalation |
-
 | MITRE ATT&CK | T1548.002, Bypass UAC |
-
 | Host filter | `BACKOFFICE-PC1` |
-
 | Event ID | `13` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -545,13 +517,9 @@ Full path distinguishes real from fake, legitimate the binary lives in C:\Window
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 3: Privilege Escalation |
-
 | MITRE ATT&CK | T1036, Masquerading |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -604,15 +572,10 @@ Second attempt at 02:42:39, two UAC bypass attempts fire seconds apart, only the
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 3: Privilege Escalation |
-
 | MITRE ATT&CK | T1548.002, Bypass UAC |
-
 | Host filter | `BACKOFFICE-PC1` |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -673,15 +636,10 @@ taskhostw.exe injects into spoolsv.exe, the elevated backdoor injects code into 
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 4: Defence Evasion |
-
 | MITRE ATT&CK | T1055, Process Injection |
-
 | Host filter | `BACKOFFICE-PC1` |
-
 | Event ID | `8` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -744,11 +702,8 @@ b) Local credential material. Correct. SYSTEM-level access does not grant domain
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 5: Credential Access |
-
 | MITRE ATT&CK | T1078, Valid Accounts |
-
 | Event record | No dedicated query supplied for this reasoning flag |
 
 
@@ -796,13 +751,9 @@ Noise, the Credential Manager reads (EventCode 5379) are Windows background acti
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 5: Credential Access |
-
 | MITRE ATT&CK | T1555, Credentials from Password Stores |
-
 | Host filter | `BACKOFFICE-PC1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -854,15 +805,10 @@ spoolsv.exe accessing lsass.exe, the injected Print Spooler process reaches into
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 5: Credential Access |
-
 | MITRE ATT&CK | T1003.001, LSASS Memory |
-
 | Host filter | `BACKOFFICE-PC1` |
-
 | Event ID | `10` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -917,13 +863,9 @@ What does that access level actually mean.
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 5: Credential Access |
-
 | MITRE ATT&CK | T1003.001, LSASS Memory |
-
 | Event ID | `10` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -976,13 +918,9 @@ Emily.Grant with password [REDACTED], the compromised domain credential extracte
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 5: Credential Access |
-
 | MITRE ATT&CK | T1078, Valid Accounts |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -1043,11 +981,8 @@ b) Try it against one adjacent host first. Correct. Testing a stolen credential 
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 6: Lateral Movement |
-
 | MITRE ATT&CK | T1078, Valid Accounts |
-
 | Event record | No dedicated query supplied for this reasoning flag |
 
 
@@ -1095,15 +1030,10 @@ BACKOFFICE-PC1 → HL-FS01 (172.16.0.8), around 03:33-03:34, hop one. The compro
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 6: Lateral Movement |
-
 | MITRE ATT&CK | T1021.002, SMB/Admin Shares |
-
 | Host filter | `BACKOFFICE-PC1` |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -1156,15 +1086,10 @@ HL-FS01 → ADDC01 (172.16.0.7), around 04:28:22, hop two. The file server becom
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 6: Lateral Movement |
-
 | MITRE ATT&CK | T1021.002, SMB/Admin Shares |
-
 | Host filter | `HL-FS01` |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -1217,15 +1142,10 @@ WMIC command from the DC back to a previously compromised host, traffic is bidir
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 6: Lateral Movement |
-
 | MITRE ATT&CK | T1047, WMI |
-
 | Host filter | `ADDC01` |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -1278,11 +1198,8 @@ Network segmentation (also: micro-segmentation in zero-trust contexts). The prac
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 6: Lateral Movement |
-
 | MITRE ATT&CK | T1021.002 - Remote Services: SMB/Windows Admin Shares |
-
 | Event record | No dedicated query supplied for this reasoning flag |
 
 
@@ -1338,15 +1255,10 @@ ntdsutil with IFM (Install From Media), creates a full copy of the Active Direct
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 7: Credential Access (again) |
-
 | MITRE ATT&CK | T1003.003, NTDS |
-
 | Host filter | `ADDC01` |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -1407,11 +1319,8 @@ b) Clear logs. Correct. After reaching the DC and extracting the directory datab
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 8: Defence Evasion (again) |
-
 | MITRE ATT&CK | T1070.001, Clear Windows Event Logs |
-
 | Event record | No dedicated query supplied for this reasoning flag |
 
 
@@ -1459,13 +1368,9 @@ ADDC01, BACKOFFICE-PC1, and HL-FS01: all three compromised hosts get their logs 
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 8: Defence Evasion (again) |
-
 | MITRE ATT&CK | T1070.001, Clear Windows Event Logs |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -1517,11 +1422,8 @@ Security, the one log channel cleared on every host without exception. Security 
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 8: Defence Evasion (again) |
-
 | MITRE ATT&CK | T1070.001, Clear Windows Event Logs |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -1573,11 +1475,8 @@ Which wipe is the most thorough.
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 8: Defence Evasion (again) |
-
 | MITRE ATT&CK | T1070.001, Clear Windows Event Logs |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -1638,11 +1537,8 @@ c) During, overlapping. Correct. The telemetry shows exfiltration and log-wiping
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 9: Exfiltration |
-
 | MITRE ATT&CK | T1567.002, Exfiltration to Cloud Storage |
-
 | Event record | No dedicated query supplied for this reasoning flag |
 
 
@@ -1690,15 +1586,10 @@ rclone.exe masquerading as C:\ProgramData\Microsoft\MsMpEng.exe, the exfiltratio
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 9: Exfiltration |
-
 | MITRE ATT&CK | T1036.005, Match Legitimate Name |
-
 | Host filter | `HL-FS01` |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -1751,11 +1642,8 @@ C:\Shares exfiltrated to mega:HARBORLIGHT-exfil, the entire shared-drive content
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 9: Exfiltration |
-
 | MITRE ATT&CK | T1567.002, Exfiltration to Cloud Storage |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -1807,11 +1695,8 @@ jwilson.vhr@proton.me, the MEGA account configured to receive the stolen data. P
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 9: Exfiltration |
-
 | MITRE ATT&CK | T1567.002, Exfiltration to Cloud Storage |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -1872,11 +1757,8 @@ b) Destroy recovery options, then encrypt. Correct. Double-extortion groups elim
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 10: Impact (Anti-Recovery) |
-
 | MITRE ATT&CK | T1490, Inhibit System Recovery |
-
 | Event record | No dedicated query supplied for this reasoning flag |
 
 
@@ -1924,13 +1806,9 @@ HL-FS01 gets the full treatment (vssadmin + bcdedit + wbadmin). ADDC01 gets only
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 10: Impact (Anti-Recovery) |
-
 | MITRE ATT&CK | T1490, Inhibit System Recovery |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -1983,15 +1861,10 @@ vssadmin, bcdedit, wbadmin, three distinct anti-recovery techniques: shadow copy
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 10: Impact (Anti-Recovery) |
-
 | MITRE ATT&CK | T1490, Inhibit System Recovery |
-
 | Host filter | `HL-FS01` |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -2044,15 +1917,10 @@ The anti-recovery sequence runs twice, repeated execution around 04:05:26, rough
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 10: Impact (Anti-Recovery) |
-
 | MITRE ATT&CK | T1490, Inhibit System Recovery |
-
 | Host filter | `HL-FS01` |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -2113,11 +1981,8 @@ b) Additional backdoors/persistence. Correct. A competent attacker never relies 
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 11: Persistence |
-
 | MITRE ATT&CK | T1547, Boot or Logon Autostart Execution |
-
 | Event record | No dedicated query supplied for this reasoning flag |
 
 
@@ -2165,15 +2030,10 @@ OneDriveSync.exe at C:\Users\Public\OneDriveSync.exe, a second backdoor on ADDC0
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 11: Persistence |
-
 | MITRE ATT&CK | T1036.005, Match Legitimate Name |
-
 | Host filter | `ADDC01` |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -2226,15 +2086,10 @@ wsync.exe dropped by taskhostw.exe on HL-FS01, a third independent backdoor on t
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 11: Persistence |
-
 | MITRE ATT&CK | T1543, Create/Modify System Process |
-
 | Host filter | `HL-FS01` |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -2295,13 +2150,9 @@ cloud-endpoint.net resolving through Cloudflare, the backdoors beacon to Cloudfl
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 12: Command and Control |
-
 | MITRE ATT&CK | T1568.001/T1090.004, Domain Fronting |
-
 | Event ID | `22` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -2354,13 +2205,9 @@ Persistent beaconing over port 443, not a one-off connection but a sustained cha
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 12: Command and Control |
-
 | MITRE ATT&CK | T1071.001, Web Protocols |
-
 | Event ID | `3` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -2413,13 +2260,9 @@ Not over, the loud phase finishes by ~05:23, but backdoor beaconing continues we
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 12: Command and Control |
-
 | MITRE ATT&CK | T1071.001, Web Protocols |
-
 | Event ID | `3` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -2480,11 +2323,8 @@ b) Durable domain-level persistence. Correct. With NTDS.dit extracted and host-l
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 13: Persistence / Privilege Escalation (again) |
-
 | MITRE ATT&CK | T1558, Steal or Forge Kerberos Tickets |
-
 | Event record | No dedicated query supplied for this reasoning flag |
 
 
@@ -2532,15 +2372,10 @@ svc_sql with password [REDACTED], a backdoor domain account disguised as a SQL s
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 13: Persistence / Privilege Escalation (again) |
-
 | MITRE ATT&CK | T1136.002, Create Account: Domain Account |
-
 | Host filter | `ADDC01` |
-
 | Event ID | `1` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -2593,13 +2428,9 @@ localgroup / Add-ADGroupMember, of four escalation attempts, only the ones that 
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 13: Persistence / Privilege Escalation (again) |
-
 | MITRE ATT&CK | T1098, Account Manipulation |
-
 | Host filter | `ADDC01` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -2652,11 +2483,8 @@ akira_svc, queried once, never created. A red herring: the ransomware-branded na
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 13: Persistence / Privilege Escalation (again) |
-
 | MITRE ATT&CK | T1036, Masquerading |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -2716,11 +2544,8 @@ b) The visible impact, encryption and ransom. Correct. The final step in a doubl
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 14: Impact (Encryption) |
-
 | MITRE ATT&CK | T1486, Data Encrypted for Impact |
-
 | Event record | No dedicated query supplied for this reasoning flag |
 
 
@@ -2768,13 +2593,9 @@ akira_readme.txt dropped 128 times across the estate, the the impact indicator p
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 14: Impact (Encryption) |
-
 | MITRE ATT&CK | T1486, Data Encrypted for Impact |
-
 | Event ID | `11` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -2826,13 +2647,9 @@ What's actually encrypted, and how do you know.
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 14: Impact (Encryption) |
-
 | MITRE ATT&CK | T1486, Data Encrypted for Impact |
-
 | Event ID | `11` |
-
 | Timestamp field | `EventTime` (incident time; prefer to `TimeGenerated`) |
 
 
@@ -2892,11 +2709,8 @@ Full kill chain: phishing (archive+ISO) → execution (rundll32+DLL) → injecti
 
 | Field | Value |
 |---|---|
-
 | Kill-chain stage | 15: Judgement |
-
 | MITRE ATT&CK | TA0040, Impact |
-
 | Event record | No dedicated query supplied for this reasoning flag |
 
 
