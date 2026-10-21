@@ -190,6 +190,7 @@ The investigation also associated `offscreendocument_main.js` with the initial a
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 02:00") .. datetime("2026-02-04 04:00"))
 | where host has "BACKOFFICE-PC1" and EventID == 11
 | where TargetFilename has "7z"
 ```
@@ -200,7 +201,8 @@ An archive-based phishing lure can introduce executable content into a user envi
 
 **Evidence Screenshot:**
 
-_Add screenshot of the file creation event._
+<img width="909" height="574" alt="Screenshot 2026-10-21 194110" src="https://github.com/user-attachments/assets/26ac71f7-9490-42b1-9386-443d3bc8b0a8" />
+
 
 **Detection Recommendation:**
 
@@ -236,6 +238,7 @@ rundll32.exe D:\review.dll,StartW
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 02:00") .. datetime("2026-02-04 04:00"))
 | where host has "BACKOFFICE-PC1" and EventID == 1
 | where Image has "rundll32"
     and CommandLine has "review.dll"
@@ -247,7 +250,8 @@ Using legitimate Windows binaries and process injection can conceal malicious ex
 
 **Evidence Screenshot:**
 
-_Add screenshot of the execution chain._
+<img width="836" height="506" alt="image" src="https://github.com/user-attachments/assets/0d81f6fa-7710-407a-853e-95c72d1a1222" />
+
 
 **Detection Recommendation:**
 
@@ -282,6 +286,7 @@ Reported elevation time: `02:42:39`.
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 02:00") .. datetime("2026-02-04 04:00"))
 | where EventID == 13
 | where TargetObject has "ms-settings"
 ```
@@ -292,7 +297,8 @@ The `fodhelper.exe` auto-elevation mechanism can be abused through Registry hija
 
 **Evidence Screenshot:**
 
-_Add screenshot of Registry modification and process activity._
+<img width="1052" height="647" alt="Screenshot 2026-10-21 194723" src="https://github.com/user-attachments/assets/c802e48c-118d-43f5-8b76-2ac6e3ceb62f" />
+
 
 **Detection Recommendation:**
 
@@ -323,6 +329,7 @@ The report identifies `spoolsv.exe` as a central process involved in subsequent 
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 02:00") .. datetime("2026-02-04 04:00"))
 | where EventID == 8
 | where EventData_Xml has "spoolsv"
 ```
@@ -333,7 +340,8 @@ Process injection into a trusted Windows service can obscure malicious activity 
 
 **Evidence Screenshot:**
 
-_Add screenshot of the process injection event._
+<img width="805" height="566" alt="image" src="https://github.com/user-attachments/assets/a6cad633-2822-4ce3-8d28-36b5c11570f4" />
+
 
 **Detection Recommendation:**
 
@@ -370,6 +378,7 @@ The original report includes a plaintext password, which has been redacted for t
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 02:00") .. datetime("2026-02-04 04:00"))
 | where EventID == 10
 | where EventData_Xml has "lsass"
 ```
@@ -384,7 +393,8 @@ An LSASS process-access event alone does not establish successful credential ext
 
 **Evidence Screenshot:**
 
-_Add screenshot of LSASS process access, with sensitive data removed._
+<img width="770" height="618" alt="image" src="https://github.com/user-attachments/assets/fec32feb-3f2e-43b3-84b9-913440d10bbf" />
+
 
 **Detection Recommendation:**
 
@@ -464,9 +474,6 @@ HarborlightDental_CL
 
 Repeated LSASS access across hosts can indicate an attempt to obtain further credentials and expand access to domain infrastructure.
 
-**Evidence Screenshot:**
-
-_Add screenshot of LSASS process access on HL-FS01._
 
 **Detection Recommendation:**
 
