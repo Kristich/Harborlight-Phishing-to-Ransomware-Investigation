@@ -12,7 +12,7 @@ End-to-end SOC investigation of a phishing-initiated ransomware attack against H
 **Workspace:** `LAW-SilentCorridor`  
 **Primary Telemetry:** `HarborlightDental_CL`
 
-> **Portfolio note:** Training-scenario incident reconstruction drawn from the completed hunt record. Queries have not been re-executed for this write-up. Passwords are redacted; source discrepancies are documented below.
+
 
 ---
 
