@@ -151,7 +151,7 @@ The phishing delivery was documented on the workstation. File arrival is not its
 
 
 <details>
-<summary><strong>Flag 1.1: Execution Gate</strong></summary>
+<summary><strong>🚩 Flag 1.1: Execution Gate</strong></summary>
 
 
 #### Objective
@@ -203,7 +203,7 @@ Alert on unexpected invoice-themed archive and script creation in standard-user 
 
 
 <details>
-<summary><strong>Flag 1.2: How did they get in?</strong></summary>
+<summary><strong>🚩 Flag 1.2: How did they get in?</strong></summary>
 
 
 #### Objective
@@ -272,7 +272,7 @@ The loaded DLL and subsequent process-injection events established execution. Th
 
 
 <details>
-<summary><strong>Flag 2.1: What actually runs, once that file lands?</strong></summary>
+<summary><strong>🚩 Flag 2.1: What actually runs, once that file lands?</strong></summary>
 
 
 #### Objective
@@ -334,7 +334,7 @@ Detect unusual rundll32 execution from mounted media and unexpected process inje
 
 
 <details>
-<summary><strong>Flag 2.2: What does it hide inside, before anyone&#x27;s even looking for it?</strong></summary>
+<summary><strong>🚩 Flag 2.2: What does it hide inside, before anyone&#x27;s even looking for it?</strong></summary>
 
 
 #### Objective
@@ -397,7 +397,7 @@ Detect unusual rundll32 execution from mounted media and unexpected process inje
 
 
 <details>
-<summary><strong>Flag 2.3: Why does the second file matter if it&#x27;s not new malware?</strong></summary>
+<summary><strong>🚩 Flag 2.3: Why does the second file matter if it&#x27;s not new malware?</strong></summary>
 
 
 #### Objective
@@ -467,7 +467,7 @@ The hunt identified `ms-settings` Registry hijacking and `fodhelper.exe`. Only t
 
 
 <details>
-<summary><strong>Flag 3.1: How do they get elevated without a UAC prompt?</strong></summary>
+<summary><strong>🚩 Flag 3.1: How do they get elevated without a UAC prompt?</strong></summary>
 
 
 #### Objective
@@ -528,7 +528,7 @@ Alert on ms-settings handler changes, UAC auto-elevation and unexpected binaries
 
 
 <details>
-<summary><strong>Flag 3.2: Real or Noise: taskhostw.exe</strong></summary>
+<summary><strong>🚩 Flag 3.2: Real or Noise: taskhostw.exe</strong></summary>
 
 
 #### Objective
@@ -587,7 +587,7 @@ Alert on ms-settings handler changes, UAC auto-elevation and unexpected binaries
 
 
 <details>
-<summary><strong>Flag 3.3: Of the two attempts, which one actually elevated?</strong></summary>
+<summary><strong>🚩 Flag 3.3: Of the two attempts, which one actually elevated?</strong></summary>
 
 
 #### Objective
@@ -656,7 +656,7 @@ Path mattered: legitimate `taskhostw.exe` was in `C:\Windows\System32`, whereas 
 
 
 <details>
-<summary><strong>Flag 4.1: How does spoolsv.exe end up doing everything from here on?</strong></summary>
+<summary><strong>🚩 Flag 4.1: How does spoolsv.exe end up doing everything from here on?</strong></summary>
 
 
 #### Objective
@@ -727,7 +727,7 @@ The source separated ordinary Security Event 5379 noise from malicious LSASS pro
 
 
 <details>
-<summary><strong>Flag 5.1: Local to Domain Escalation</strong></summary>
+<summary><strong>🚩 Flag 5.1: Local to Domain Escalation</strong></summary>
 
 
 #### Objective
@@ -779,7 +779,7 @@ Correlate suspicious LSASS access, exposed credentials on process command lines 
 
 
 <details>
-<summary><strong>Flag 5.2: Real or Noise: Credential Manager reads</strong></summary>
+<summary><strong>🚩 Flag 5.2: Real or Noise: Credential Manager reads</strong></summary>
 
 
 #### Objective
@@ -837,7 +837,7 @@ Correlate suspicious LSASS access, exposed credentials on process command lines 
 
 
 <details>
-<summary><strong>Flag 5.3: Which process actually touches credential memory?</strong></summary>
+<summary><strong>🚩 Flag 5.3: Which process actually touches credential memory?</strong></summary>
 
 
 #### Objective
@@ -900,7 +900,7 @@ Correlate suspicious LSASS access, exposed credentials on process command lines 
 
 
 <details>
-<summary><strong>Flag 5.4: What does that access level actually mean?</strong></summary>
+<summary><strong>🚩 Flag 5.4: What does that access level actually mean?</strong></summary>
 
 
 #### Objective
@@ -959,7 +959,7 @@ Correlate suspicious LSASS access, exposed credentials on process command lines 
 
 
 <details>
-<summary><strong>Flag 5.5: Which account, and what&#x27;s the password?</strong></summary>
+<summary><strong>🚩 Flag 5.5: Which account, and what&#x27;s the password?</strong></summary>
 
 
 #### Objective
@@ -1026,7 +1026,7 @@ The first SMB hop targeted `172.16.0.8` about 03:33–03:34, and the second reac
 
 
 <details>
-<summary><strong>Flag 6.1: Credential Reach Test</strong></summary>
+<summary><strong>🚩 Flag 6.1: Credential Reach Test</strong></summary>
 
 
 #### Objective
@@ -1078,7 +1078,7 @@ Detect workstation-to-server SMB admin-share access and WMI execution from unexp
 
 
 <details>
-<summary><strong>Flag 6.2: Where does the credential go first?</strong></summary>
+<summary><strong>🚩 Flag 6.2: Where does the credential go first?</strong></summary>
 
 
 #### Objective
@@ -1139,7 +1139,7 @@ Detect workstation-to-server SMB admin-share access and WMI execution from unexp
 
 
 <details>
-<summary><strong>Flag 6.3: Where does it go from there?</strong></summary>
+<summary><strong>🚩 Flag 6.3: Where does it go from there?</strong></summary>
 
 
 #### Objective
@@ -1200,7 +1200,7 @@ Detect workstation-to-server SMB admin-share access and WMI execution from unexp
 
 
 <details>
-<summary><strong>Flag 6.4: Does the traffic only flow one way?</strong></summary>
+<summary><strong>🚩 Flag 6.4: Does the traffic only flow one way?</strong></summary>
 
 
 #### Objective
@@ -1261,7 +1261,7 @@ Detect workstation-to-server SMB admin-share access and WMI execution from unexp
 
 
 <details>
-<summary><strong>Flag 6.5: Lateral Movement Prevention</strong></summary>
+<summary><strong>🚩 Flag 6.5: Lateral Movement Prevention</strong></summary>
 
 
 #### Objective
@@ -1321,7 +1321,7 @@ On `ADDC01`, `ntdsutil` with Install-From-Media was used to export a copy of `NT
 
 
 <details>
-<summary><strong>Flag 7.1: What does the attacker take from the DC itself?</strong></summary>
+<summary><strong>🚩 Flag 7.1: What does the attacker take from the DC itself?</strong></summary>
 
 
 #### Objective
@@ -1390,7 +1390,7 @@ All three compromised hosts were subjected to log-clearing commands. The Securit
 
 
 <details>
-<summary><strong>Flag 8.1: Post-Extraction Pivot</strong></summary>
+<summary><strong>🚩 Flag 8.1: Post-Extraction Pivot</strong></summary>
 
 
 #### Objective
@@ -1442,7 +1442,7 @@ Forward Security logs off-host and alert on wevtutil cl commands, particularly m
 
 
 <details>
-<summary><strong>Flag 8.2: Which hosts get their logs cleared?</strong></summary>
+<summary><strong>🚩 Flag 8.2: Which hosts get their logs cleared?</strong></summary>
 
 
 #### Objective
@@ -1500,7 +1500,7 @@ Forward Security logs off-host and alert on wevtutil cl commands, particularly m
 
 
 <details>
-<summary><strong>Flag 8.3: Is there one channel cleared everywhere, without exception?</strong></summary>
+<summary><strong>🚩 Flag 8.3: Is there one channel cleared everywhere, without exception?</strong></summary>
 
 
 #### Objective
@@ -1556,7 +1556,7 @@ Forward Security logs off-host and alert on wevtutil cl commands, particularly m
 
 
 <details>
-<summary><strong>Flag 8.4: Which wipe is the most thorough?</strong></summary>
+<summary><strong>🚩 Flag 8.4: Which wipe is the most thorough?</strong></summary>
 
 
 #### Objective
@@ -1621,7 +1621,7 @@ The hunt linked masqueraded `rclone` activity to a MEGA target `mega:HARBORLIGHT
 
 
 <details>
-<summary><strong>Flag 9.1: Exfil Timing</strong></summary>
+<summary><strong>🚩 Flag 9.1: Exfil Timing</strong></summary>
 
 
 #### Objective
@@ -1673,7 +1673,7 @@ Monitor renamed executable paths, rclone configuration and cloud-storage uploads
 
 
 <details>
-<summary><strong>Flag 9.2: What&#x27;s leaving the network, disguised as what?</strong></summary>
+<summary><strong>🚩 Flag 9.2: What&#x27;s leaving the network, disguised as what?</strong></summary>
 
 
 #### Objective
@@ -1734,7 +1734,7 @@ Monitor renamed executable paths, rclone configuration and cloud-storage uploads
 
 
 <details>
-<summary><strong>Flag 9.3: What moves, and where to?</strong></summary>
+<summary><strong>🚩 Flag 9.3: What moves, and where to?</strong></summary>
 
 
 #### Objective
@@ -1790,7 +1790,7 @@ Monitor renamed executable paths, rclone configuration and cloud-storage uploads
 
 
 <details>
-<summary><strong>Flag 9.4: Whose account receives it?</strong></summary>
+<summary><strong>🚩 Flag 9.4: Whose account receives it?</strong></summary>
 
 
 #### Objective
@@ -1855,7 +1855,7 @@ On `HL-FS01`, three anti-recovery mechanisms were used (`vssadmin`, `bcdedit`, `
 
 
 <details>
-<summary><strong>Flag 10.1: Double-Extortion Next Move</strong></summary>
+<summary><strong>🚩 Flag 10.1: Double-Extortion Next Move</strong></summary>
 
 
 #### Objective
@@ -1907,7 +1907,7 @@ Detect vssadmin, wbadmin and bcdedit recovery inhibition, particularly in cluste
 
 
 <details>
-<summary><strong>Flag 10.2: Which host loses its recovery options, and which doesn&#x27;t?</strong></summary>
+<summary><strong>🚩 Flag 10.2: Which host loses its recovery options, and which doesn&#x27;t?</strong></summary>
 
 
 #### Objective
@@ -1966,7 +1966,7 @@ Detect vssadmin, wbadmin and bcdedit recovery inhibition, particularly in cluste
 
 
 <details>
-<summary><strong>Flag 10.3: What techniques get used together?</strong></summary>
+<summary><strong>🚩 Flag 10.3: What techniques get used together?</strong></summary>
 
 
 #### Objective
@@ -2027,7 +2027,7 @@ Detect vssadmin, wbadmin and bcdedit recovery inhibition, particularly in cluste
 
 
 <details>
-<summary><strong>Flag 10.4: Does it only happen once?</strong></summary>
+<summary><strong>🚩 Flag 10.4: Does it only happen once?</strong></summary>
 
 
 #### Objective
@@ -2096,7 +2096,7 @@ The hunt reported separate persistence across hosts: workstation `taskhostw.exe`
 
 
 <details>
-<summary><strong>Flag 11.1: Persistence Hunt</strong></summary>
+<summary><strong>🚩 Flag 11.1: Persistence Hunt</strong></summary>
 
 
 #### Objective
@@ -2148,7 +2148,7 @@ Alert on new autostart entries, scheduled tasks and masqueraded executables acro
 
 
 <details>
-<summary><strong>Flag 11.2: Is there a second way back in?</strong></summary>
+<summary><strong>🚩 Flag 11.2: Is there a second way back in?</strong></summary>
 
 
 #### Objective
@@ -2209,7 +2209,7 @@ Alert on new autostart entries, scheduled tasks and masqueraded executables acro
 
 
 <details>
-<summary><strong>Flag 11.3: Is there a third?</strong></summary>
+<summary><strong>🚩 Flag 11.3: Is there a third?</strong></summary>
 
 
 #### Objective
@@ -2278,7 +2278,7 @@ Backdoor activity involved `cdn.cloud-endpoint.net` and HTTPS/443. The hunt repo
 
 
 <details>
-<summary><strong>Flag 12.1: Where do these backdoors actually phone home to?</strong></summary>
+<summary><strong>🚩 Flag 12.1: Where do these backdoors actually phone home to?</strong></summary>
 
 
 #### Objective
@@ -2337,7 +2337,7 @@ Detect anomalous outbound beaconing by user-writable-path executables, including
 
 
 <details>
-<summary><strong>Flag 12.2: Is this a one-off connection or something more sustained?</strong></summary>
+<summary><strong>🚩 Flag 12.2: Is this a one-off connection or something more sustained?</strong></summary>
 
 
 #### Objective
@@ -2396,7 +2396,7 @@ Detect anomalous outbound beaconing by user-writable-path executables, including
 
 
 <details>
-<summary><strong>Flag 12.3: Is it really over?</strong></summary>
+<summary><strong>🚩 Flag 12.3: Is it really over?</strong></summary>
 
 
 #### Objective
@@ -2463,7 +2463,7 @@ A newly created `svc_sql` domain account and confirmed group-membership events i
 
 
 <details>
-<summary><strong>Flag 13.1: Attacker End Goal</strong></summary>
+<summary><strong>🚩 Flag 13.1: Attacker End Goal</strong></summary>
 
 
 #### Objective
@@ -2515,7 +2515,7 @@ Monitor privileged group changes and new domain service accounts, with alerting 
 
 
 <details>
-<summary><strong>Flag 13.2: Is there a backdoor built into the domain itself?</strong></summary>
+<summary><strong>🚩 Flag 13.2: Is there a backdoor built into the domain itself?</strong></summary>
 
 
 #### Objective
@@ -2576,7 +2576,7 @@ Monitor privileged group changes and new domain service accounts, with alerting 
 
 
 <details>
-<summary><strong>Flag 13.3: Which privilege-escalation attempt actually worked?</strong></summary>
+<summary><strong>🚩 Flag 13.3: Which privilege-escalation attempt actually worked?</strong></summary>
 
 
 #### Objective
@@ -2635,7 +2635,7 @@ Monitor privileged group changes and new domain service accounts, with alerting 
 
 
 <details>
-<summary><strong>Flag 13.4: Right after confirming the backdoor account, a second name shows up. Is it real?</strong></summary>
+<summary><strong>🚩 Flag 13.4: Right after confirming the backdoor account, a second name shows up. Is it real?</strong></summary>
 
 
 #### Objective
@@ -2699,7 +2699,7 @@ The source reported 128 copies of `akira_readme.txt` and 27 distinct `.akira` pa
 
 
 <details>
-<summary><strong>Flag 14.1: Final Playbook Stage</strong></summary>
+<summary><strong>🚩 Flag 14.1: Final Playbook Stage</strong></summary>
 
 
 #### Objective
@@ -2751,7 +2751,7 @@ Alert on bursts of ransomware extensions and ransom-note creation across multipl
 
 
 <details>
-<summary><strong>Flag 14.2: What&#x27;s the ransom note, and how many times does it land?</strong></summary>
+<summary><strong>🚩 Flag 14.2: What&#x27;s the ransom note, and how many times does it land?</strong></summary>
 
 
 #### Objective
@@ -2809,7 +2809,7 @@ Alert on bursts of ransomware extensions and ransom-note creation across multipl
 
 
 <details>
-<summary><strong>Flag 14.3: What&#x27;s actually encrypted, and how do you know?</strong></summary>
+<summary><strong>🚩 Flag 14.3: What&#x27;s actually encrypted, and how do you know?</strong></summary>
 
 
 #### Objective
@@ -2875,7 +2875,7 @@ The final stage reconciled the phishing-to-ransomware path, overlapping log wipi
 
 
 <details>
-<summary><strong>Flag 15.1: Can you put the whole chain in order?</strong></summary>
+<summary><strong>🚩 Flag 15.1: Can you put the whole chain in order?</strong></summary>
 
 
 #### Objective
@@ -2973,6 +2973,9 @@ The later command-and-control telemetry means the investigation does **not** est
 ### Skills Demonstrated
 
 Sysmon and Windows Security analysis · KQL threat hunting · Incident timeline reconstruction · Phishing and LOLBin analysis · Process injection · Credential theft and Active Directory abuse · SMB/WMI lateral movement · Anti-forensics · Exfiltration investigation · Ransomware impact · MITRE ATT&CK mapping · Evidence quality assessment
+
+
+
 
 
 
