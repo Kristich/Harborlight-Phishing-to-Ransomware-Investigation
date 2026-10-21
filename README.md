@@ -14,7 +14,7 @@ End-to-end SOC investigation of a phishing-initiated ransomware attack against H
 
 
 
-
+---
 
 ## Executive Summary
 
@@ -113,38 +113,22 @@ Phishing 7z → ISO / rundll32 DLL → notepad injection → fodhelper UAC bypas
 ---
 
 ## MITRE ATT&CK Summary
-
 | Stage | Kill-Chain Phase | Technique IDs | Flags |
 |---:|---|---|---:|
-
 | 1 | Initial Access | `T1566` | 2 |
-
 | 2 | Execution | `T1218.011`, `T1055`, `T1027` | 3 |
-
 | 3 | Privilege Escalation | `T1548.002`, `T1036` | 3 |
-
 | 4 | Defence Evasion | `T1055` | 1 |
-
 | 5 | Credential Access | `T1078`, `T1555`, `T1003.001` | 5 |
-
 | 6 | Lateral Movement | `T1078`, `T1021.002`, `T1047` | 5 |
-
 | 7 | Credential Access (again) | `T1003.003` | 1 |
-
 | 8 | Defence Evasion (again) | `T1070.001` | 4 |
-
 | 9 | Exfiltration | `T1567.002`, `T1036.005` | 4 |
-
 | 10 | Impact (Anti-Recovery) | `T1490` | 4 |
-
 | 11 | Persistence | `T1547`, `T1036.005`, `T1543` | 3 |
-
 | 12 | Command and Control | `T1568.001`, `T1090.004`, `T1071.001` | 3 |
-
 | 13 | Persistence / Privilege Escalation (again) | `T1558`, `T1136.002`, `T1098`, `T1036` | 4 |
-
 | 14 | Impact (Encryption) | `T1486` | 3 |
-
 | 15 | Judgement | Tactic-level / synthesis | 1 |
 
 
@@ -2957,6 +2941,7 @@ Correlate the full intrusion sequence into multi-stage high-confidence detection
 | P2 | Cloud exfiltration visibility | Correlate process command lines with network flows, DNS, cloud access logs and transferred-byte metrics. |
 | P2 | Execution from user-writable directories | Implement application control, reduce local privilege and alert on masqueraded Windows/Microsoft executables outside trusted paths. |
 
+**Response status:** The completed hunt demonstrates investigation results, not verified containment, eradication, restoration, or formal closure. Because connections continued after encryption, treating the incident as closed would be unsupported.
 
 
 ---
@@ -2988,5 +2973,7 @@ The later command-and-control telemetry means the investigation does **not** est
 ### Skills Demonstrated
 
 Sysmon and Windows Security analysis · KQL threat hunting · Incident timeline reconstruction · Phishing and LOLBin analysis · Process injection · Credential theft and Active Directory abuse · SMB/WMI lateral movement · Anti-forensics · Exfiltration investigation · Ransomware impact · MITRE ATT&CK mapping · Evidence quality assessment
+
+
 
 
