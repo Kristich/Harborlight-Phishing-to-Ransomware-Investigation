@@ -225,6 +225,7 @@ The filename and target selection show social engineering tailored to a dental o
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 02:00") .. datetime("2026-02-04 04:00"))
 | where host has "BACKOFFICE-PC1" and EventID == 11
 | where TargetFilename has "7z"
 | project EventTime, TargetFilename, Image
@@ -290,6 +291,7 @@ rundll32 is a living-off-the-land binary; using it to load a DLL from a mounted 
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 02:00") .. datetime("2026-02-04 04:00"))
 | where host has "BACKOFFICE-PC1" and EventID == 1
 | where Image has "rundll32"
 | where CommandLine has "review.dll"
@@ -299,7 +301,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="744" height="405" alt="image" src="https://github.com/user-attachments/assets/62800bfb-5c8c-4fd6-acaf-0e86117608b3" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -357,7 +360,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="728" height="524" alt="image" src="https://github.com/user-attachments/assets/dd45f850-3a20-4ef8-aad8-28f40820be05" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -414,7 +418,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="960" height="482" alt="image" src="https://github.com/user-attachments/assets/bfd75301-8528-4667-8f7f-7e45e48f99a8" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -470,6 +475,7 @@ fodhelper auto-elevates without a UAC prompt. Hijacking its command handler lets
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 02:00") .. datetime("2026-02-04 04:00"))
 | where host has "BACKOFFICE-PC1" and EventID == 13
 | where TargetObject has "ms-settings"
 | project EventTime, TargetObject, Details
@@ -478,7 +484,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="842" height="520" alt="image" src="https://github.com/user-attachments/assets/ae1b2189-99c1-4583-9149-fb2b474635e2" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -525,6 +532,7 @@ Filename-based detection is insufficient. Path-based analysis is the only reliab
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 02:00") .. datetime("2026-02-04 04:00"))
 | where EventID == 1
 | where Image has "taskhostw"
 | project EventTime, host, Image, IntegrityLevel
@@ -533,7 +541,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="748" height="434" alt="image" src="https://github.com/user-attachments/assets/4b28c98b-c5ca-4d27-894d-e0fb56959e5b" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -581,6 +590,7 @@ Not every technique attempt succeeds. Distinguishing success from failure requir
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 02:00") .. datetime("2026-02-04 04:00"))
 | where host has "BACKOFFICE-PC1" and EventID == 1
 | where Image has "fodhelper"
 | project EventTime, Image, IntegrityLevel
@@ -589,7 +599,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="755" height="467" alt="image" src="https://github.com/user-attachments/assets/64894e6a-907b-4955-bcbc-12762b62aa1b" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -645,6 +656,7 @@ This is the operational pivot. From this point, every lateral movement command, 
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 02:00") .. datetime("2026-02-04 04:00"))
 | where host has "BACKOFFICE-PC1" and EventID == 8
 | where EventData_Xml has "spoolsv"
 | extend SourceImage = extract("SourceImage'>([^<]+)", 1, EventData_Xml)
@@ -655,7 +667,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="743" height="522" alt="image" src="https://github.com/user-attachments/assets/fbcd61af-2fc4-478a-9fea-70d88d82b720" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -704,15 +717,6 @@ b) Local credential material. Correct. SYSTEM-level access does not grant domain
 This reasoning step helps connect the surrounding evidence and prevents unsupported conclusions.
 
 
-#### KQL Query Used
-
-
-_No standalone KQL query was supplied for this conceptual flag. Consult the adjacent evidence-producing flags._
-
-
-#### 🖼️ Screenshot
-
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
 
 
 #### 🛡️ Detection Recommendation
@@ -759,6 +763,7 @@ Noise, the Credential Manager reads (EventCode 5379) are Windows background acti
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 00:00") .. datetime("2026-02-04 23:00"))
 | where host has "BACKOFFICE-PC1" and EventCode == 5379
 | summarize count() by bin(EventTime, 1h)
 ```
@@ -766,7 +771,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="799" height="425" alt="image" src="https://github.com/user-attachments/assets/2dcde200-55a8-4790-9285-3ee1396c49a2" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -814,6 +820,7 @@ LSASS holds cached domain credentials in memory. Direct process access to LSASS 
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 00:00") .. datetime("2026-02-04 23:00"))
 | where host has "BACKOFFICE-PC1" and EventID == 10
 | where EventData_Xml has "lsass"
 | extend SourceImage = extract("SourceImage'>([^<]+)", 1, EventData_Xml)
@@ -824,7 +831,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="794" height="458" alt="image" src="https://github.com/user-attachments/assets/e40d8aca-0606-4945-86ad-697fa533d6e4" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -871,6 +879,7 @@ This access mask is the definitive signature of a credential dump. Anything less
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 00:00") .. datetime("2026-02-04 23:00"))
 | where EventID == 10 and EventData_Xml has "lsass"
 | where EventData_Xml has "spoolsv"
 | project EventTime, granted_access
@@ -879,7 +888,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="758" height="517" alt="image" src="https://github.com/user-attachments/assets/f0483731-464c-4ce3-8c32-25689a30e305" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -893,7 +903,7 @@ Correlate suspicious LSASS access, exposed credentials on process command lines 
 
 
 <details>
-<summary><strong>🚩 Flag 5.5: Which account, and what&#x27;s the password?</strong></summary>
+<summary><strong>🚩 Flag 5.5: Which account, and what's the password?</strong></summary>
 
 
 #### Objective
@@ -903,7 +913,7 @@ Which account, and what's the password.
 
 #### Finding
 
-Emily.Grant with password [REDACTED], the compromised domain credential extracted from LSASS. First seen in plaintext in a net use command for lateral movement.
+Emily.Grant with password Dental2024!, the compromised domain credential extracted from LSASS. First seen in plaintext in a net use command for lateral movement.
 
 
 #### Evidence
@@ -926,6 +936,7 @@ A weak, predictable password on a standard user account. The credential appears 
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 00:00") .. datetime("2026-02-04 23:00"))
 | where EventID == 1 and CommandLine has "/user:"
 | where EventTime > datetime(2026-02-04 03:30:00)
 | project EventTime, CommandLine, host
@@ -934,7 +945,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="1002" height="439" alt="image" src="https://github.com/user-attachments/assets/cdb0269e-6e36-4d44-b811-5eef20f8b41e" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -983,15 +995,6 @@ b) Try it against one adjacent host first. Correct. Testing a stolen credential 
 This reasoning step helps connect the surrounding evidence and prevents unsupported conclusions.
 
 
-#### KQL Query Used
-
-
-_No standalone KQL query was supplied for this conceptual flag. Consult the adjacent evidence-producing flags._
-
-
-#### 🖼️ Screenshot
-
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
 
 
 #### 🛡️ Detection Recommendation
@@ -1039,6 +1042,7 @@ The file server is the first lateral movement target, tested before the attacker
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 00:00") .. datetime("2026-02-04 23:00"))
 | where host has "BACKOFFICE-PC1" and EventID == 1
 | where CommandLine has "net use" and CommandLine has "172.16.0.8"
 | project EventTime, CommandLine
@@ -1047,7 +1051,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="768" height="382" alt="image" src="https://github.com/user-attachments/assets/43ac325e-2a44-4b0c-ae25-cfa13ad46801" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -1095,6 +1100,7 @@ The attacker uses each compromised host as a stepping stone, not connecting dire
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 00:00") .. datetime("2026-02-04 23:00"))
 | where host has "HL-FS01" and EventID == 1
 | where CommandLine has "net use" and CommandLine has "172.16.0.7"
 | project EventTime, CommandLine
@@ -1103,7 +1109,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="785" height="343" alt="image" src="https://github.com/user-attachments/assets/24411cc4-22c4-4c1d-98b8-3f043f847d65" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -1151,6 +1158,7 @@ Bidirectional command flow means the DC is being used as an operational hub, iss
 
 ```kql
 HarborlightDental_CL
+| where EventTime between (datetime("2026-02-04 00:00") .. datetime("2026-02-04 23:00"))
 | where host has "ADDC01" and EventID == 1
 | where CommandLine has "wmic"
 | project EventTime, CommandLine
@@ -1159,7 +1167,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="1002" height="352" alt="image" src="https://github.com/user-attachments/assets/1c5e5947-c0f1-4855-8265-08b1722419a2" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -1200,15 +1209,6 @@ Network segmentation (also: micro-segmentation in zero-trust contexts). The prac
 This reasoning step helps connect the surrounding evidence and prevents unsupported conclusions.
 
 
-#### KQL Query Used
-
-
-_No standalone KQL query was supplied for this conceptual flag. Consult the adjacent evidence-producing flags._
-
-
-#### 🖼️ Screenshot
-
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
 
 
 #### 🛡️ Detection Recommendation
@@ -1272,7 +1272,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="708" height="427" alt="image" src="https://github.com/user-attachments/assets/9f96213a-f564-454e-9861-6ef9c3aa9460" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -1321,15 +1322,6 @@ b) Clear logs. Correct. After reaching the DC and extracting the directory datab
 This reasoning step helps connect the surrounding evidence and prevents unsupported conclusions.
 
 
-#### KQL Query Used
-
-
-_No standalone KQL query was supplied for this conceptual flag. Consult the adjacent evidence-producing flags._
-
-
-#### 🖼️ Screenshot
-
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
 
 
 #### 🛡️ Detection Recommendation
@@ -1383,7 +1375,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="570" height="348" alt="image" src="https://github.com/user-attachments/assets/8536e01a-6e02-409e-a0e8-2402a3b5a4d2" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -1436,7 +1429,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="665" height="365" alt="image" src="https://github.com/user-attachments/assets/83aac1f6-5542-434a-9f8d-a760f7a0bdf7" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -1490,7 +1484,7 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+
 
 
 #### 🛡️ Detection Recommendation
@@ -1539,15 +1533,7 @@ c) During, overlapping. Correct. The telemetry shows exfiltration and log-wiping
 This reasoning step helps connect the surrounding evidence and prevents unsupported conclusions.
 
 
-#### KQL Query Used
 
-
-_No standalone KQL query was supplied for this conceptual flag. Consult the adjacent evidence-producing flags._
-
-
-#### 🖼️ Screenshot
-
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
 
 
 #### 🛡️ Detection Recommendation
@@ -1561,12 +1547,12 @@ Monitor renamed executable paths, rclone configuration and cloud-storage uploads
 
 
 <details>
-<summary><strong>🚩 Flag 9.2: What&#x27;s leaving the network, disguised as what?</strong></summary>
+<summary><strong>🚩 Flag 9.2: What's leaving the network, disguised as what?</strong></summary>
 
 
 #### Objective
 
-What's leaving the network, disguised as what.
+What's leaving the network, disguised as what?
 
 
 #### Finding
@@ -1603,7 +1589,7 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+
 
 
 #### 🛡️ Detection Recommendation
@@ -1656,7 +1642,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="1086" height="429" alt="image" src="https://github.com/user-attachments/assets/d72e9b74-a03e-4afb-b648-4ad3003d095a" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -1710,7 +1697,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="886" height="487" alt="image" src="https://github.com/user-attachments/assets/5eb2a6d8-a5b8-42a3-bc20-a21fb5d9e165" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -1759,15 +1747,6 @@ b) Destroy recovery options, then encrypt. Correct. Double-extortion groups elim
 This reasoning step helps connect the surrounding evidence and prevents unsupported conclusions.
 
 
-#### KQL Query Used
-
-
-_No standalone KQL query was supplied for this conceptual flag. Consult the adjacent evidence-producing flags._
-
-
-#### 🖼️ Screenshot
-
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
 
 
 #### 🛡️ Detection Recommendation
@@ -1781,7 +1760,7 @@ Detect vssadmin, wbadmin and bcdedit recovery inhibition, particularly in cluste
 
 
 <details>
-<summary><strong>🚩 Flag 10.2: Which host loses its recovery options, and which doesn&#x27;t?</strong></summary>
+<summary><strong>🚩 Flag 10.2: Which host loses its recovery options, and which doesn't?</strong></summary>
 
 
 #### Objective
@@ -1822,7 +1801,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="771" height="547" alt="image" src="https://github.com/user-attachments/assets/81ecb54d-4ade-4702-9e87-874d99cd6bc3" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -1878,7 +1858,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="773" height="536" alt="image" src="https://github.com/user-attachments/assets/5e10326f-10dc-4224-bc04-b8c4768ab304" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -1934,7 +1915,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="647" height="455" alt="image" src="https://github.com/user-attachments/assets/72e89057-868b-461b-bd25-d046fb5292b9" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -1983,15 +1965,6 @@ b) Additional backdoors/persistence. Correct. A competent attacker never relies 
 This reasoning step helps connect the surrounding evidence and prevents unsupported conclusions.
 
 
-#### KQL Query Used
-
-
-_No standalone KQL query was supplied for this conceptual flag. Consult the adjacent evidence-producing flags._
-
-
-#### 🖼️ Screenshot
-
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
 
 
 #### 🛡️ Detection Recommendation
@@ -2047,7 +2020,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="834" height="460" alt="image" src="https://github.com/user-attachments/assets/c886a727-77ce-41ce-be9f-8e9294bbeddf" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -2103,7 +2077,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="819" height="398" alt="image" src="https://github.com/user-attachments/assets/dc0b521c-ba7b-4a1d-ad61-2fa241369292" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -2166,7 +2141,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="815" height="482" alt="image" src="https://github.com/user-attachments/assets/2570dee1-c41e-414c-a366-329493c24304" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -2221,7 +2197,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="667" height="457" alt="image" src="https://github.com/user-attachments/assets/5da4bcab-9fd9-484a-80ee-b07bcd4a20e7" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -2276,7 +2253,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="797" height="538" alt="image" src="https://github.com/user-attachments/assets/8dcb49de-c6c3-40ad-9aef-8bb02e749ffe" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -2325,15 +2303,6 @@ b) Durable domain-level persistence. Correct. With NTDS.dit extracted and host-l
 This reasoning step helps connect the surrounding evidence and prevents unsupported conclusions.
 
 
-#### KQL Query Used
-
-
-_No standalone KQL query was supplied for this conceptual flag. Consult the adjacent evidence-producing flags._
-
-
-#### 🖼️ Screenshot
-
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
 
 
 #### 🛡️ Detection Recommendation
@@ -2357,7 +2326,7 @@ Is there a backdoor built into the domain itself.
 
 #### Finding
 
-svc_sql with password [REDACTED], a backdoor domain account disguised as a SQL service account. Survives a full host rebuild.
+svc_sql with password Summer2024!, a backdoor domain account disguised as a SQL service account. Survives a full host rebuild.
 
 
 #### Evidence
@@ -2389,7 +2358,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="576" height="340" alt="image" src="https://github.com/user-attachments/assets/fd47d172-d903-455d-b046-3a92e939a92e" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -2444,7 +2414,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="768" height="380" alt="image" src="https://github.com/user-attachments/assets/344e8709-877f-4349-889d-9dc82c422a53" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -2497,7 +2468,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="701" height="571" alt="image" src="https://github.com/user-attachments/assets/dcc6e7eb-ff96-4c3e-ac4b-1b6a5a6c05fd" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -2546,15 +2518,6 @@ b) The visible impact, encryption and ransom. Correct. The final step in a doubl
 This reasoning step helps connect the surrounding evidence and prevents unsupported conclusions.
 
 
-#### KQL Query Used
-
-
-_No standalone KQL query was supplied for this conceptual flag. Consult the adjacent evidence-producing flags._
-
-
-#### 🖼️ Screenshot
-
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
 
 
 #### 🛡️ Detection Recommendation
@@ -2568,7 +2531,7 @@ Alert on bursts of ransomware extensions and ransom-note creation across multipl
 
 
 <details>
-<summary><strong>🚩 Flag 14.2: What&#x27;s the ransom note, and how many times does it land?</strong></summary>
+<summary><strong>🚩 Flag 14.2: What's the ransom note, and how many times does it land?</strong></summary>
 
 
 #### Objective
@@ -2608,7 +2571,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="607" height="342" alt="image" src="https://github.com/user-attachments/assets/a7cc6f6b-605e-4776-8fc5-fc0db8418999" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -2622,7 +2586,7 @@ Alert on bursts of ransomware extensions and ransom-note creation across multipl
 
 
 <details>
-<summary><strong>🚩 Flag 14.3: What&#x27;s actually encrypted, and how do you know?</strong></summary>
+<summary><strong>🚩 Flag 14.3: What's actually encrypted, and how do you know?</strong></summary>
 
 
 #### Objective
@@ -2662,7 +2626,8 @@ HarborlightDental_CL
 
 #### 🖼️ Screenshot
 
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
+<img width="539" height="321" alt="image" src="https://github.com/user-attachments/assets/43e96a6d-51f5-4be5-b170-8e457e4da976" />
+
 
 
 #### 🛡️ Detection Recommendation
@@ -2711,15 +2676,6 @@ Full kill chain: phishing (archive+ISO) → execution (rundll32+DLL) → injecti
 This is the synthesis. Every stage connects through timestamps and process lineage already proven.
 
 
-#### KQL Query Used
-
-
-_No standalone KQL query was supplied for this conceptual flag. Consult the adjacent evidence-producing flags._
-
-
-#### 🖼️ Screenshot
-
-_[Insert a redacted screenshot of the corresponding hunt results; not supplied in the source.]_
 
 
 #### 🛡️ Detection Recommendation
@@ -2747,7 +2703,6 @@ Correlate the full intrusion sequence into multi-stage high-confidence detection
 | P2 | Cloud exfiltration visibility | Correlate process command lines with network flows, DNS, cloud access logs and transferred-byte metrics. |
 | P2 | Execution from user-writable directories | Implement application control, reduce local privilege and alert on masqueraded Windows/Microsoft executables outside trusted paths. |
 
-**Response status:** The completed hunt demonstrates investigation results, not verified containment, eradication, restoration, or formal closure. Because connections continued after encryption, treating the incident as closed would be unsupported.
 
 
 ---
